@@ -132,17 +132,12 @@ jStat.extend({
 				if ( count > maxCount ) {
 					maxNum = _arr[i];
 					maxCount = count;
-					count = 1;
 					numMaxCount = 0;
-				} else {
-					// are there multiple max counts
-					if ( count === maxCount ) {
-						numMaxCount++;
-					// count is less than max count, so reset values
-					} else {
-						count = 1;
-					}
+				} else if ( count === maxCount ) {
+					numMaxCount++;
 				}
+				// resetting the count for the new value in array
+				count = 1;
 			}
 		}
 		return ( numMaxCount === 0 ) ? maxNum : false;
